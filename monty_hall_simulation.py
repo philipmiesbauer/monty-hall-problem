@@ -2,7 +2,7 @@
 
 import random as rand
 
-number_games = 100000
+number_games = 1000000
 
 def set_stage():
   winning_door = rand.randint(0,2)
@@ -26,7 +26,18 @@ if __name__ == '__main__':
         number_wins+=1
       else:
          number_losses+=1
+    print("We are " + ("not " if not switch else "") + "switching")
+    print("Number of wins: " + str(number_wins))
+    print("Number of losses: " + str(number_losses))
 
+    number_wins = 0
+    number_losses = 0
+    switch = True
+    for game_number in range(number_games):
+      if play_game(switch):
+        number_wins+=1
+      else:
+         number_losses+=1
     print("We are " + ("not " if not switch else "") + "switching")
     print("Number of wins: " + str(number_wins))
     print("Number of losses: " + str(number_losses))
